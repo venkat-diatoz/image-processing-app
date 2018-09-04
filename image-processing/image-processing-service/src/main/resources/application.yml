@@ -1,21 +1,21 @@
 #For local environment deployment
 server:
-  port: 9096
+  port: 9091
   servlet:
-    context-path: /image 
+    context-path: /images 
 
 spring:
-  profiles : default
+  profiles : local
   application:
     name: image-processing-app 
    
-  data:
-    mongodb:
-      host: localhost
-      database: images
-      port: 27017
-      repositories:
-        type: auto
+#  data:
+#    mongodb:
+#      host: localhost
+#      database: images
+#      port: 27017
+#      repositories:
+#        type: auto
         
 logging:
   level:
@@ -25,16 +25,16 @@ logging:
 ---
 # For heroku environment deployment     
 server:
-  port: ${PORT:9096}
+  port: ${PORT:9091}
   servlet:
     context-path: /images
 spring:
   profiles: heroku
   application:
     name: image-processing-app  
-  data:
-    mongodb:
-      uri: mongodb://developer:1Developer@meshcluster-shard-00-00-ca4vj.mongodb.net:27017,meshcluster-shard-00-01-ca4vj.mongodb.net:27017,meshcluster-shard-00-02-ca4vj.mongodb.net:27017/diatoz?ssl=true&replicaSet=meshcluster-shard-0&authSource=admin
+#  data:
+#    mongodb:
+#      uri: mongodb://developer:1Developer@meshcluster-shard-00-00-ca4vj.mongodb.net:27017,meshcluster-shard-00-01-ca4vj.mongodb.net:27017,meshcluster-shard-00-02-ca4vj.mongodb.net:27017/diatoz?ssl=true&replicaSet=meshcluster-shard-0&authSource=admin
       
 logging:
   level:
